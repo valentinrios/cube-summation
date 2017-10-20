@@ -10,9 +10,9 @@ class Matrix(object):
 
 	def query(self, x1, y1, z1, x2, y2, z2):
 		s = 0
-		for i in xrange(int(x1)-1, int(x2)-1):
-			for j in xrange(int(y1)-1, int(y2)-1):
-				for k in xrange(int(z1)-1, int(z2)-1):
+		for i in xrange(int(x1)-1, int(x2)):
+			for j in xrange(int(y1)-1, int(y2)):
+				for k in xrange(int(z1)-1, int(z2)):
 					s += self.matrix[i][j][k]
 		return s
 

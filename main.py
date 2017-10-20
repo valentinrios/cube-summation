@@ -35,20 +35,30 @@ for x in xrange(0,test_cases):
 	
 	matrix = Matrix(matrix_size)
 	print matrix.get_matrix()
-	
+
 
 	while number_operations != 0:
 		input_string = raw_input("Request: ")
 		ise = input_string.split(" ")
 		if ise[0] == "UPDATE":
-			matrix.update_value(ise[1],ise[2],ise[3],ise[4])
-			print matrix.get_matrix()
-			print ">: OK"		
-			number_operations = number_operations -1
+			try:			
+				if all(x > matrix_size for x in (ise[1],ise[2],ise[3])):
+					print "Invalid UPDATE position!"
+				else:
+					matrix.update_value(ise[1],ise[2],ise[3],ise[4])
+					print ">: OK"		
+					number_operations = number_operations -1
+			except Exception as e:
+				print 'Invalid UPDATE Format!'
 		elif ise[0] == "QUERY":
-			print matrix.get_matrix()
-			print ">:", matrix.query(ise[1],ise[2],ise[3],ise[4],ise[5],ise[6])
-			number_operations = number_operations -1
+			try:
+				if ise[1]>ise[4] or ise[2]>ise[5] or ise[3]>ise[6]:
+					print "Invalid QUERY position!"
+				else:
+					print ">:", matrix.query(ise[1],ise[2],ise[3],ise[4],ise[5],ise[6])
+					number_operations = number_operations -1
+			except Exception as e:
+				print 'Invalid QUERY Format!'
 		else:
 			print 'Invalid Request!'
 
