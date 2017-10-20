@@ -5,12 +5,6 @@ class Matrix(object):
 		self.n = int(n)
 		self.matrix = [[[0 for k in xrange(self.n)] for j in xrange(self.n)] for i in xrange(self.n)]
 
-	def build_matrix():
-		for i in xrange(0,self.n):
-			for j in xrange(0,self.n):
-				for k in xrange(0,self.n):
-					matrix[i][j][k] = 0
-
 	def update_value(self, x, y, z, value):
 		self.matrix[int(x)-1][int(y)-1][int(z)-1] = int(value)
 
