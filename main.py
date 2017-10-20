@@ -15,7 +15,6 @@ while ok == False:
 
 ok = False
 for x in xrange(0,test_cases):
-	print 'HOLA', x
 	while ok == False:
 		try:
 			matrix_size = int(raw_input("Matrix Size: "))
@@ -34,15 +33,13 @@ for x in xrange(0,test_cases):
 			print 'Invalid Number Format!'
 	
 	matrix = Matrix(matrix_size)
-	print matrix.get_matrix()
-
 
 	while number_operations != 0:
 		input_string = raw_input("Request: ")
 		ise = input_string.split(" ")
 		if ise[0] == "UPDATE":
 			try:			
-				if all(x > matrix_size for x in (ise[1],ise[2],ise[3])):
+				if all(x > matrix_size for x in (int(ise[1]),int(ise[2]),int(ise[3]))):
 					print "Invalid UPDATE position!"
 				else:
 					matrix.update_value(ise[1],ise[2],ise[3],ise[4])
@@ -52,7 +49,7 @@ for x in xrange(0,test_cases):
 				print 'Invalid UPDATE Format!'
 		elif ise[0] == "QUERY":
 			try:
-				if ise[1]>ise[4] or ise[2]>ise[5] or ise[3]>ise[6]:
+				if int(ise[1])>int(ise[4]) or int(ise[2])>int(ise[5]) or int(ise[3])>int(ise[6]):
 					print "Invalid QUERY position!"
 				else:
 					print ">:", matrix.query(ise[1],ise[2],ise[3],ise[4],ise[5],ise[6])
