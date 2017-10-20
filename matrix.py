@@ -1,10 +1,9 @@
 class Matrix(object):
 	"""docstring for Matrix"""
-	def __init__(self, n, m):
+	def __init__(self, n):
 		super(Matrix, self).__init__()
-		self.n = n
-		self.m = m
-		self.matrix = [[[0 for k in xrange(n)] for j in xrange(n)] for i in xrange(n)]
+		self.n = int(n)
+		self.matrix = [[[0 for k in xrange(self.n)] for j in xrange(self.n)] for i in xrange(self.n)]
 
 	def build_matrix():
 		for i in xrange(0,self.n):
